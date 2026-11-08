@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090d20">
+<title>Project Shruti — A Birthday Mission</title>
+<style>
+:root{--bg:#080c1c;--panel:rgba(19,25,53,.82);--line:rgba(194,190,255,.2);--gold:#f6d68a;--pink:#ff9ecb;--lav:#b8b5ff;--muted:#b8bdd6;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;color:var(--white);font-family:Georgia,'Times New Roman',serif;background:radial-gradient(ellipse at 20% 15%,#29204e 0,transparent 35%),radial-gradient(ellipse at 85% 75%,#172b4d 0,transparent 35%),linear-gradient(145deg,#080c1c,#11132b 60%,#090d20);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(1px 1px at 10% 20%,#fff 99%,transparent),radial-gradient(1px 1px at 70% 15%,#fff 99%,transparent),radial-gradient(2px 2px at 45% 70%,#fff 99%,transparent),radial-gradient(1px 1px at 90% 50%,#fff 99%,transparent),radial-gradient(1px 1px at 25% 85%,#fff 99%,transparent);background-size:230px 190px;opacity:.5;animation:twinkle 5s ease-in-out infinite alternate}
+@keyframes twinkle{to{opacity:.9}}@keyframes float{50%{transform:translateY(-9px)}}@keyframes glow{50%{text-shadow:0 0 28px #f4b5dc,0 0 50px #a9a5ff}}
+.wrap{width:min(920px,92vw);margin:auto;position:relative;z-index:1;padding:26px 0 70px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--muted);font:11px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase}.seal{border:1px solid var(--line);padding:8px 11px;border-radius:99px;color:var(--gold)}
+.hero{text-align:center;padding:clamp(55px,12vh,110px) 10px 45px}.eyebrow{color:var(--gold);font:12px Arial,sans-serif;letter-spacing:4px;text-transform:uppercase}.hero h1{font-size:clamp(44px,9vw,82px);font-weight:normal;line-height:.98;margin:20px 0 14px;animation:glow 4s infinite}.hero p{color:var(--muted);font-size:18px;line-height:1.65;max-width:610px;margin:0 auto}.orb{width:116px;height:116px;border-radius:50%;margin:0 auto 26px;background:radial-gradient(circle at 35% 30%,#fff5d6,#f3b7d7 23%,#8377c9 55%,#282b65 75%);box-shadow:0 0 45px #c29bff66,0 0 100px #a38cff33;animation:float 5s ease-in-out infinite;display:grid;place-items:center;font-size:42px}
+.btn{border:0;border-radius:999px;padding:14px 24px;background:linear-gradient(100deg,#f5d58b,#f4a9ce);color:#21152b;font-weight:bold;font-size:14px;cursor:pointer;box-shadow:0 8px 30px #e9a8d833;transition:.2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}.btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:clamp(22px,5vw,42px);backdrop-filter:blur(12px);box-shadow:0 20px 70px #0004}
+.hidden{display:none!important}.progress{display:flex;gap:8px;margin:0 0 25px}.dot{height:5px;flex:1;border-radius:9px;background:#ffffff18}.dot.done{background:linear-gradient(90deg,var(--gold),var(--pink))}
+.stage-tag{font:11px Arial,sans-serif;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase}.panel h2{font-weight:normal;font-size:clamp(28px,5vw,42px);margin:12px 0}.story{color:#d8d9ec;line-height:1.8;font-size:17px}.clue{margin:24px 0;padding:20px;border-left:2px solid var(--pink);background:#ffffff08;border-radius:0 14px 14px 0;color:#f5e7f2;line-height:1.7;font-size:18px}.answerrow{display:flex;gap:10px;margin-top:18px}.answerrow input{flex:1;min-width:0;background:#080d20;border:1px solid var(--line);border-radius:12px;padding:14px 15px;color:white;font-size:16px;outline:none}.answerrow input:focus{border-color:var(--pink)}.feedback{min-height:26px;margin:12px 0 0;color:var(--gold);font:13px Arial,sans-serif}.hint{background:none;border:0;color:var(--lav);text-decoration:underline;cursor:pointer;padding:10px 0;font-size:13px}.memory{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:22px 0}.memory div{border:1px solid var(--line);border-radius:15px;padding:16px;background:#ffffff08}.memory b{display:block;color:var(--gold);font-size:20px;margin-bottom:7px}.memory span{color:var(--muted);font:13px/1.5 Arial,sans-serif}
+.final{text-align:center}.heart{font-size:48px;filter:drop-shadow(0 0 20px #ff8ebd);animation:float 3s infinite}.letter{white-space:pre-line;text-align:left;color:#f0eafa;font-size:18px;line-height:1.9;background:#ffffff08;border:1px solid var(--line);border-radius:18px;padding:24px;margin:25px 0}.signature{color:var(--gold);font-style:italic;font-size:21px}.tiny{color:#9299b8;font:11px/1.6 Arial,sans-serif;text-align:center;margin-top:30px}.confetti{position:fixed;top:-15px;width:8px;height:13px;z-index:5;animation:fall 4s linear forwards;pointer-events:none}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+@media(max-width:560px){.top{font-size:9px}.answerrow{flex-direction:column}.answerrow .btn{width:100%}.memory{grid-template-columns:1fr}.hero p{font-size:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><span>✦ Classified birthday operation</span><span class="seal">For Shruti's eyes only</span></div>
+  <section class="hero" id="intro">
+    <div class="orb">✦</div>
+    <div class="eyebrow">A message from someone who loves you</div>
+    <h1>Project Shruti</h1>
+    <p>Somewhere between a first meeting, a thousand little memories and a future still waiting to happen, a secret has been hidden for you.</p>
+    <p style="margin-top:12px">Four clues. One final destination. Your mission begins now.</p>
+    <button class="btn" style="margin-top:30px" onclick="startMission()">ACCEPT THE MISSION&nbsp; →</button>
+  </section>
+
+  <section class="panel hidden" id="game">
+    <div class="progress" id="progress"></div>
+    <div class="stage-tag" id="stageTag">MISSION 01</div>
+    <h2 id="stageTitle">The beginning</h2>
+    <p class="story" id="stageStory"></p>
+    <div class="clue" id="stageClue"></div>
+    <div class="answerrow"><input id="answer" autocomplete="off" placeholder="Type your answer..." aria-label="Your answer"><button class="btn" onclick="checkAnswer()">UNLOCK</button></div>
+    <div class="feedback" id="feedback" aria-live="polite"></div>
+    <button class="hint" onclick="showHint()">Need a hint?</button>
+  </section>
+
+  <section class="panel hidden final" id="ending">
+    <div class="heart">♥</div>
+    <div class="stage-tag">MISSION COMPLETE</div>
+    <h2>You found the treasure.</h2>
+    <p class="story">It was never hidden in a city, a star or a secret code. It was in every little moment that brought us here.</p>
+    <div class="memory">
+      <div><b>Agra</b><span>Where our story found its first page.</span></div>
+      <div><b>Jabalpur</b><span>Where moments turned into memories.</span></div>
+      <div><b>Bhopal</b><span>Another place in the map of our journey.</span></div>
+      <div><b>Varanasi</b><span>A reminder that there are still places and chapters waiting for us.</span></div>
+    </div>
+    <div class="letter" id="letter">Happy Birthday, Shruti! ❤️
+
+To the girl who spends her days caring for others: I hope life takes extra care of you today and always.
+
+You have this beautiful way of making difficult days softer and ordinary moments memorable. From Agra to Jabalpur, and through every city and chapter that life brings, I'm grateful that our paths crossed.
+
+I admire the doctor you are, but I love the person behind that white coat even more — your kindness, your smile, your caring heart and all the little things that make you you.
+
+May this year bring you beautiful surprises, fulfilling dreams, peaceful days, loud laughter and every bit of happiness you deserve.
+
+And if I could choose one thing for the chapters still unwritten, it would be to keep making memories with you.
+
+Happy Birthday, my favourite person. Here's to you, today and always. ❤️</div>
+    <div class="signature">With all my love ♥</div>
+    <p style="color:var(--gold);margin:24px 0 8px">One last thing…</p>
+    <p class="story">Make a wish, close your eyes, and imagine me right there celebrating beside you.</p>
+    <button class="btn" onclick="cake()">🎂 LIGHT THE BIRTHDAY SKY</button>
+    <p id="cakeMessage" class="story"></p>
+  </section>
+  <div class="tiny">A little universe made just for you. <br>Tip: open this link on your phone, turn the sound of the world down, and take your time.</div>
+</div>
+<script>
+const stages=[
+ {tag:"MISSION 01 · THE FIRST COORDINATE",title:"Where the story began",story:"Every great mystery has an origin. Before the messages, the miles and the memories, there was one city where two paths crossed.",clue:"Clue: It is the city of the Taj Mahal. The place where we first met. Enter the city name.",answer:["agra"],hint:"A-G-R-A. Four letters, and the first page of our story."},
+ {tag:"MISSION 02 · THE MEMORY ARCHIVE",title:"Where moments became memories",story:"A city can become special because of the person you share it with. Some places stay with us long after we leave them.",clue:"Clue: Madhya Pradesh holds this chapter. Think of the city connected with our repeated meetings and memories.",answer:["jabalpur"],hint:"It begins with J and ends with 'pur'."},
+ {tag:"MISSION 03 · THE HEALER'S CODE",title:"The girl behind the white coat",story:"This mission is dedicated to someone who spends her days helping people feel better. But this particular person has a way of making one heart feel lighter without even trying.",clue:"Clue: What is her profession? One word. (No stethoscope required.)",answer:["doctor","physician"],hint:"The person who diagnoses, treats and cares for patients."},
+ {tag:"MISSION 04 · THE NEXT CHAPTER",title:"A map with more stories to come",story:"Our story isn't a finished book. There are new roads, new memories and new places waiting somewhere ahead.",clue:"Clue: The city on the Ganga, famous for its ghats and ancient lanes. A place on the map of this story.",answer:["varanasi","banaras","benaras"],hint:"Also known as Banaras or Kashi."}
+];
+let current=0;
+function startMission(){document.getElementById('intro').classList.add('hidden');document.getElementById('game').classList.remove('hidden');render();document.getElementById('answer').focus()}
+function render(){let s=stages[current];document.getElementById('progress').innerHTML=stages.map((_,i)=>`<div class="dot ${i<=current?'done':''}"></div>`).join('');document.getElementById('stageTag').textContent=s.tag;document.getElementById('stageTitle').textContent=s.title;document.getElementById('stageStory').textContent=s.story;document.getElementById('stageClue').textContent=s.clue;document.getElementById('answer').value='';document.getElementById('feedback').textContent='';document.getElementById('answer').placeholder='Type your answer...'}
+function checkAnswer(){let v=document.getElementById('answer').value.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');if(!v){document.getElementById('feedback').textContent='The mission needs an answer, detective.';return}if(stages[current].answer.includes(v)){document.getElementById('feedback').textContent='✓ Access granted. Memory unlocked.';setTimeout(()=>{current++;if(current<stages.length)render();else{document.getElementById('game').classList.add('hidden');document.getElementById('ending').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});celebrate()}},850)}else{document.getElementById('feedback').textContent='Not quite. Try again — the clue is waiting for you.'}}
+function showHint(){document.getElementById('feedback').textContent='HINT: '+stages[current].hint}
+document.getElementById('answer').addEventListener('keydown',e=>{if(e.key==='Enter')checkAnswer()});
+function celebrate(){for(let i=0;i<90;i++){let x=document.createElement('i');x.className='confetti';x.style.left=Math.random()*100+'vw';x.style.background=['#f6d68a','#ff9ecb','#b8b5ff','#ffffff'][i%4];x.style.animationDelay=Math.random()*2+'s';document.body.appendChild(x);setTimeout(()=>x.remove(),6500)}}
+function cake(){document.getElementById('cakeMessage').textContent='✨ Wish sent to the universe. Happy Birthday, Shruti! ❤️';celebrate()}
+</script>
+</body>
+</html>
